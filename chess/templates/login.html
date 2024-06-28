@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Opening Gambit</title>
+    <link rel="stylesheet" href="{% static "log.css" %}">
+</head>
+<body>
+    <h1 class="title">Opening Gambit</h1>
+
+    <div class="container">
+        <form action="{% url "login" %}" method="post">
+            {% csrf_token %}
+            <h2 class="sub-title">Login</h2>
+            {% if message %}
+                <div class="message">{{ message }}</div>
+            {% endif %}
+            <div class="inp-container">
+                <label>Username
+                    <input type="text" name="username" autofocus  required>
+                </label>
+            </div>
+            <div class="inp-container">
+                <label>Password
+                    <input type="password" name="password" required>
+                </label>
+            </div>
+            <div class="redirect">
+                <p>Don't have an account?</p>
+                <a href="{% url "register" %}">Click here!</a>
+            </div>
+            <button class="confirm-button">Confirm</button>
+        </form>
+    </div>
+</body>
+</html>

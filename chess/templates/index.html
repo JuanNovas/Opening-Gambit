@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "styles.css" %}">
+<link rel="stylesheet" href="{% static "chessboardjs/css/chessboard-1.0.0.css" %}">
+{% endblock %}
+{% block script %}
+<script src="{% static "carousel.js" %}"></script>
+<script src="{% static "jquery.js" %}"></script>
+<script src="{% static "chessboardjs/js/chessboard-1.0.0.js" %}"></script>
+<script src="{% static "chess.js" %}"></script>
+<script src="{% static "new-course.js" %}"></script>
+{% endblock %}
+
+{% block body %}
+
+{% if request.user.is_authenticated %}
+<h3 class="profile-user">{{ request.user.username }}</h3>
+{% endif %}
+<h3 class="carousel-title">Top courses</h3>
+<div class="carousel">
+    <div class="images">
+        <a onclick="window.modalItalian.showModal();"><img src="{% static "posters/italian.JPG" %}" alt="Image 1"></a>
+        <a onclick="window.modalQueens.showModal();"><img src="{% static "posters/queensGambit.JPG" %}" alt="Image 2"></a>
+        <a onclick="window.modalPetrov.showModal();"><img src="{% static "posters/petrov.JPG" %}" alt="Image 3"></a>
+        <a onclick="window.modalScandinavian.showModal();"><img src="{% static "posters/scandinavian.JPG" %}" alt="Image 4"></a>
+        <a onclick="window.modalRuy.showModal();"><img src="{% static "posters/espanish.JPG" %}" alt="Image 5"></a>
+        <a onclick="window.modalCaro.showModal();"><img src="{% static "posters/caro-kann.JPG" %}" alt="Image 6"></a>
+        <a onclick="window.modalBongcloud.showModal();"><img src="{% static "posters/bongcloud.JPG" %}" alt="Image 7"></a>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+</div>
+<dialog id="modalScandinavian" class="modal">
+    <button onclick="window.modalScandinavian.close();" class="modal__close">X</button>
+    <h2 class="modal__title">Scandinavian</h2>
+    <a href="{% url "practice" 1 %}" class="modal__link">Play</a>
+    <a href="{% url "copy" 1  %}" class="modal__link">Copy</a>
+</dialog>
+<dialog id="modalQueens" class="modal">
+    <button onclick="window.modalQueens.close();" class="modal__close">X</button>
+    <h2 class="modal__title">Queen's Gambit</h2>
+    <a href="{% url "practice" 2 %}" class="modal__link">Play</a>
+    <a href="{% url "copy" 2  %}" class="modal__link">Copy</a>
+</dialog>
+<dialog id="modalPetrov" class="modal">
+    <button onclick="window.modalPetrov.close();" class="modal__close">X</button>
+    <h2 class="modal__title">Petrov Defense</h2>
+    <a href="{% url "practice" 3 %}" class="modal__link">Play</a>
+    <a href="{% url "copy" 3  %}" class="modal__link">Copy</a>
+</dialog>
+<dialog id="modalItalian" class="modal">
+    <button onclick="window.modalItalian.close();" class="modal__close">X</button>
+    <h2 class="modal__title">Italian Aggressive</h2>
+    <a href="{% url "practice" 5 %}" class="modal__link">Play</a>
+    <a href="{% url "copy" 5  %}" class="modal__link">Copy</a>
+</dialog>
+<dialog id="modalRuy" class="modal">
+    <button onclick="window.modalRuy.close();" class="modal__close">X</button>
+    <h2 class="modal__title">Ruy Lopez</h2>
+    <a href="{% url "practice" 6 %}" class="modal__link">Play</a>
+    <a href="{% url "copy" 6  %}" class="modal__link">Copy</a>
+</dialog>
+<dialog id="modalCaro" class="modal">
+    <button onclick="window.modalCaro.close();" class="modal__close">X</button>
+    <h2 class="modal__title">Caro-Kann Defense</h2>
+    <a href="{% url "practice" 7 %}" class="modal__link">Play</a>
+    <a href="{% url "copy" 7  %}" class="modal__link">Copy</a>
+</dialog>
+<dialog id="modalBongcloud" class="modal">
+    <button onclick="window.modalBongcloud.close();" class="modal__close">X</button>
+    <h2 class="modal__title">Bongcloud</h2>
+    <a href="{% url "practice" 8 %}" class="modal__link">Play</a>
+    <a href="{% url "copy" 8  %}" class="modal__link">Copy</a>
+</dialog>
+<div class="bottom-grid">
+    <div class="my-courses">
+        <h2 class="courses__title">Your Courses</h2>
+        <div class="courses__table">
+            <ul>
+                {% if user_courses %}
+                    {% for course in user_courses %}
+                        <li class="courses__item"><a onclick="window.modal{{ forloop.counter }}.showModal();" class="courses__link">{{ course.name }} </a></li>
+                        <dialog id="modal{{ forloop.counter }}" class="modal">
+                            <button onclick="window.modal{{ forloop.counter }}.close();" class="modal__close">X</button>
+                            <h2 class="modal__title">{{ course.name }}</h2>
+                            <a href="{% url "practice" course.pk %}" class="modal__link">Play</a>
+                            {% if request.user == course.owner%}
+                                <a href="{% url "create" course.pk  0 %}" class="modal__link">Edit</a>
+                            {% endif %}
+                        </dialog>
+                    {% endfor %}
+                {% else %}
+                <li class="courses__item"> No courses</li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <a href="{% url "new-course" %}" class="new-course">NEW</a>
+    </div>
+    <div class="example">
+        <div id="myBoard"></div>
+        <script src="{% static "autoplay.js" %}"></script>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,194 @@
+.course-name {
+    margin: 10px;
+    color: #eee;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+.board-container {
+    padding: 20px;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#myBoard {
+    width: 40vw;
+}
+
+.right-container {
+    padding: 20px;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.courses__table {
+    margin-right: 50px;
+    margin-left: -70px;
+    border-radius: 12px;
+    background-color: #a7a7a799;
+    width: 400px;
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
+.courses__table ul {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.courses__item:nth-child(2n) {
+    background-color: #0004;
+}
+
+.courses__item:last-child {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.courses__item{
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    padding-left: 20px;
+    color: #ffffff;
+}
+
+.courses__link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.courses__table::-webkit-scrollbar {
+    width: 0;
+}
+
+.moves_list {
+    margin: 20px 0 20px -60px;
+    width: 400px;
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+.moves_list::-webkit-scrollbar {
+    width: 0;
+}
+
+.options__buttons {
+    margin: 20px 0 20px -60px;
+    width: 400px;
+}
+
+.task-options {
+    border-radius: 14px;
+    background-color: #a7a7a7bb;
+    border: 2px solid #0009;
+    width: 170px;
+    height: 40px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    color: #fffe;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0 10px 10px 0;
+    padding: 0;
+    display: inline-block;
+    outline: none;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.task-options:hover {
+    background-color: #a7a7a755;
+    line-height: 80%;
+}
+
+a.task-options {
+    text-decoration: none;
+    padding-top: 6px;
+}
+
+
+dialog {
+    border-radius: 16px;
+    width: 700px;
+    height: 240px;
+    text-align: center;
+}
+  
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.726);
+}
+
+.modal {
+    background-color: #a7a7a7ee;
+}
+
+.modal__title {
+    font-size: 60px;
+}
+
+.modal__close {
+    color: white;
+    height: 2.8em;
+    width: 2.8em;
+    background: #000a;
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+}
+
+.modal__link {
+    color: #d7d7d7ff;
+    border: 4px solid #0008;
+    border-radius: 14px;
+    padding: 5px;
+    background-color: #6D6D6Dff;
+    text-decoration: none;
+    font-size: 35px;
+}
+
+
+@media screen and (max-width: 1000px) {
+    dialog {
+        height: 300px;
+    }
+
+
+    .container {
+        display: block;
+    }
+
+    .board-container {
+        width: 90vw;
+        align-items: center;
+        padding: 0;
+    }
+
+    #myBoard {
+        width: 90vw;
+    }
+
+    .counter {
+        text-align: center;
+    }
+
+    .right-container button,
+    .right-container a{
+        width: 100%;
+        margin: 0;
+    }
+
+    .right-container div {
+        margin: 0;
+        width: 100%;
+    }
+
+}

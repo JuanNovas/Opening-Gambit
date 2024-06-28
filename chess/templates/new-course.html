@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "log.css" %}">
+{% endblock %}
+
+{% block body %}
+<h1 class="title">New Course</h1>
+
+<div class="container">
+    <form action="{% url "new-course" %}" method="post">
+        {% csrf_token %}
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+        <div class="inp-container">
+            <label>Name
+                <input type="text" name="name" required maxlength="120" autofocus>
+            </label>
+        </div>
+        <div class="inp-container">
+            <label>Type
+                <select name="public" class="type-input">
+                    <option value="True">Public</option>
+                    <option value="False">Private</option>
+                </select>
+            </label>
+        </div>
+        <button class="confirm-button">Confirm</button>
+    </form>
+</div>
+{% endblock %}

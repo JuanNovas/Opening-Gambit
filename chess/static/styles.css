@@ -1,0 +1,230 @@
+.profile-user {
+    font-size: 37px;
+    color: white;
+    margin-top: 30px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.carousel-title {
+    margin: 0;
+    margin-top: 30px;
+    padding: 0;
+    font-size: 35px;
+    color: white;
+}
+
+.carousel {
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.images {
+    cursor: pointer;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.images a {
+    flex: 0 0 25%;
+    border: 2px solid #000;
+}
+
+.images img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.bottom-grid {
+    display: flex;
+    margin-top: 70px;
+}
+
+.my-courses {
+    width: 50vw;
+}
+
+.courses__title {
+    color: #eee;
+}
+
+.courses__table {
+    margin-right: 50px;
+    margin-left: 0;
+    border-radius: 12px;
+    background-color: #a7a7a799;
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
+.courses__table ul {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul .courses__item:nth-child(4n+3) {
+    background-color: #0004;
+}
+
+.courses__item:last-child {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.courses__item{
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    padding-left: 20px;
+    color: #ffffff;
+}
+
+.courses__link {
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.example {
+    width: 50vw;
+    display: flex;
+    align-items: center;
+}
+
+#myBoard {
+    flex-grow: 1;
+}
+
+.new-course {
+    border-radius: 14px;
+    background-color: #a7a7a7bb;
+    border: 2px solid #000a;
+    width: 170px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+    padding-top: 9px;
+}
+
+.new-course:hover {
+    background-color: #a7a7a755;
+}
+
+
+
+.courses__table::-webkit-scrollbar {
+    width: 0;
+}
+
+  
+
+dialog {
+    border-radius: 16px;
+    width: 700px;
+    height: 240px;
+    text-align: center;
+}
+  
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.726);
+}
+
+.modal {
+    background-color: #a7a7a7ee;
+}
+
+.modal__title {
+    font-size: 60px;
+}
+
+.modal__close {
+    color: white;
+    height: 2.8em;
+    width: 2.8em;
+    background: #000a;
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+}
+
+.modal__link {
+    color: #d7d7d7ff;
+    border: 4px solid #0008;
+    border-radius: 14px;
+    padding: 5px;
+    background-color: #6D6D6Dff;
+    text-decoration: none;
+    font-size: 35px;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .images a {
+        flex: 0 0 50%;
+    }
+
+    .carousel-title {
+        font-size: 50px;
+    }
+
+    
+
+    .courses__title {
+        text-align: center;
+    }
+
+
+    .my-courses {
+        width: 90vw;
+        min-height: 70vh;
+        box-sizing: border-box;
+    }
+
+    .my-courses .courses__table {
+        margin-right: 0;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+
+    .courses__table ul {
+        margin: 0;
+    }
+
+    .example {
+        display: none;
+    }
+
+    dialog {
+        height: 300px;
+    }
+
+}

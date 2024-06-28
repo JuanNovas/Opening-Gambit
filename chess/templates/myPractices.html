@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "courses.css" %}">
+{% endblock %}
+{% block script %}
+{% endblock %}
+
+{% block body %}
+<div>
+    <header>
+        <h2 class="courses__title">Your Courses</h2>
+        <a href="{% url "new-course" %}" class="new-course">NEW</a>
+    </header>
+    
+    <div class="courses__table">
+        <ul>
+            {% if user_courses %}
+                {% for course in user_courses %}
+                    <li class="courses__item"><a onclick="window.modal{{ forloop.counter }}.showModal();" class="courses__link">{{ course.name }} </a></li>
+                    <dialog id="modal{{ forloop.counter }}" class="modal">
+                        <button onclick="window.modal{{ forloop.counter }}.close();" class="modal__close">X</button>
+                        <h2 class="modal__title">{{ course.name }}</h2>
+                        <a href="{% url "practice" course.pk %}" class="modal__link">Play</a>
+                        {% if request.user == course.owner%}
+                            <a href="{% url "create" course.pk  0 %}" class="modal__link">Edit</a>
+                        {% endif %}
+                    </dialog>
+                {% endfor %}
+            {% else %}
+            <li class="courses__item"> No courses</li>
+            {% endif %}
+        </ul>
+    </div>
+
+</div>
+
+{% endblock %}

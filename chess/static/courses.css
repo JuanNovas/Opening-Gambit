@@ -1,0 +1,165 @@
+header {
+    display: flex;
+    justify-content:space-between;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.courses__title {
+    color: #eee;
+}
+
+.new-course {
+    border-radius: 14px;
+    background-color: #a7a7a7bb;
+    border: 2px solid #000a;
+    width: 170px;
+    height: 40px;
+    text-align: center;
+    margin: 40px 50px;
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+    padding-top: 9px;
+}
+
+.new-course:hover {
+    background-color: #a7a7a755;
+}
+
+.course_input {
+    width: 270px;
+    height: 40px;
+    margin: auto 0;
+    border-radius: 10px;
+    font-size: 20px;
+    outline: none;
+}
+
+.search_course {
+    border-radius: 14px;
+    background-color: #a7a7a7bb;
+    border: 2px solid #000a;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    margin: 40px 50px;
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+.search_course:hover {
+    background-color: #a7a7a755;
+}
+
+.courses__table {
+    margin-right: 50px;
+    margin-left: 0;
+    border-radius: 12px;
+    background-color: #a7a7a799;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.courses__table ul {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul .courses__item:nth-child(4n+3) {
+    background-color: #0004;
+}
+
+.courses__item:last-child {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.courses__item{
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    padding-left: 20px;
+    color: #ffffff;
+}
+
+.courses__link {
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.courses__table::-webkit-scrollbar {
+    width: 0;
+}
+
+dialog {
+    border-radius: 16px;
+    width: 700px;
+    height: 240px;
+    text-align: center;
+}
+  
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.726);
+}
+
+.modal {
+    background-color: #a7a7a7ee;
+}
+
+.modal__title {
+    font-size: 60px;
+}
+
+.modal__close {
+    color: white;
+    height: 2.8em;
+    width: 2.8em;
+    background: #000a;
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+}
+
+.modal__link {
+    color: #d7d7d7ff;
+    border: 4px solid #0008;
+    border-radius: 14px;
+    padding: 5px;
+    background-color: #6D6D6Dff;
+    text-decoration: none;
+    font-size: 35px;
+}
+
+
+@media screen and (max-width: 1000px) {
+    dialog {
+        height: 300px;
+    }
+
+
+    .courses__table {
+        margin-right: 0;
+    }
+
+    form {
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+
+    .search_course {
+        margin: 25px 0;
+    }
+
+}

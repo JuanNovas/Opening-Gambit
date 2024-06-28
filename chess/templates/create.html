@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+
+{% block script %}
+<script src="{% static "jquery.js" %}"></script>
+<script src="{% static "chessboardjs/js/chessboard-1.0.0.js" %}"></script>
+<script src="{% static "chess.js" %}"></script>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "chessboardjs/css/chessboard-1.0.0.css" %}">
+<link rel="stylesheet" href="{% static "create.css" %}">
+{% endblock %}
+
+{% block body %}
+<h2 class="course-name">{{ course.name }}</h2>
+<div class="container">
+    <div class="board-container">
+        <div id="myBoard"></div>
+    </div>
+    <div class="right-container">
+        <div class="courses__table">
+            <ul id="courses__list">
+                {% for task in tasks %}
+                    <li class="courses__item"><a href="{% url "create" course.id task.pk%}" class="courses__link" id={{task.pk}}>{{ forloop.counter }} </a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="moves_list"><label for="#pgn">Moves:
+            <div id="pgn">{{ task.pgn }}</div>
+            <div id="side" style="display: none;">{{ task.side }}</div>
+        </label></div>
+        <div class="options__buttons">
+            <button class="task-options" id="button__new">NEW</button>
+            <button class="task-options" id="button__save">SAVE</button>
+            <button class="task-options" id="button__reset">RESET</button>
+            <button class="task-options" id="button__switch">SWITCH</button>
+            <button class="task-options" id="button__delete">DELETE</button>
+            <a href="{% url "practice" course.pk%}" class="task-options">PLAY</a>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static "recorder.js" %}"></script>
+{% endblock %}
