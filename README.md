@@ -2,6 +2,8 @@
 
 Opening Gambit is a web application designed to help users practice and memorize chess openings. Built with Django, it allows users to create, share, and practice chess opening courses, enhancing their memorization and understanding of different chess strategies.
 
+[Showcase video](https://www.youtube.com/watch?v=Il_Hw0q2z8I)
+
 ## Features ✨
 
 - **Create and Share Courses**: Users can create custom chess opening courses and share them with others.
@@ -60,3 +62,7 @@ Opening Gambit is a web application designed to help users practice and memorize
 For any inquiries or feedback, please reach out via [juanignacionovas@gmail.com](mailto:juanignacionovas@gmail.com).
 
 
+### CS50Web
+
+This was my final project of CS50Web development with Python and Javascript.
+[Here are all my other submicions](https://github.com/JuanNovas/cs50web-JuanNovas)
