@@ -65,4 +65,4 @@ For any inquiries or feedback, please reach out via [juanignacionovas@gmail.com]
 ### CS50Web
 
 This was my final project of CS50Web development with Python and Javascript.
-[Here are all my other submicions](https://github.com/JuanNovas/cs50web-JuanNovas)
+[Here are all my other submissions](https://github.com/JuanNovas/cs50web-JuanNovas)
